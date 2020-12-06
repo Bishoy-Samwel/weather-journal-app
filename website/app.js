@@ -20,7 +20,7 @@ function perform_generate_action(){
     'user_response': user_response
   }
   .then(function(data){
-    post_data(baseURL,data_object)
+    post_data('/add',data_object)
   })
   .then(
     updateUI
@@ -29,8 +29,8 @@ function perform_generate_action(){
 
 
 //async function 
-const get_weather = async(baseURL,zipcode,key)=>{
-  const response = await fetch(baseURL,zipcode,key)
+const get_weather = async(url,zipcode,key)=>{
+  const response = await fetch(url,apiKey)
   try{
     const weather_data = await response.json();
     console.log(weather_data);
