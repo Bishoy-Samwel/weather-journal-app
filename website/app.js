@@ -70,6 +70,6 @@ const updateUI = async () => {
 
 
   }catch{
-    alert('Please insert a zip code!')
+    alert('Please insert a zip code and your feeling!')
   }
 } 
