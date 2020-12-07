@@ -1,11 +1,11 @@
 /* Global Variables */
 const apiKey = '96d89e124ba2d4da7fcbc814e612e463';
 let zip_code = 0
-let baseURL = `api.openweathermap.org/data/2.5/weather?zip=${zip_code}&appid=${apiKey}`;
+let baseURL = `api.openweathermap.org/data/2.5/weather?zip=${zip_code}&appid=${apiKey}&units=metric`;
 
 // Create a new date instance dynamically with JS
 let d = new Date();
-let newDate = d.getMonth()+'.'+ d.getDate()+'.'+ d.getFullYear();
+let newDate = (d.getMonth()+1)+'.'+ d.getDate()+'.'+ d.getFullYear();
 
 //Event Listener for element id generate
 document.getElementById('generate').addEventListener('click', perform_generate_action)
@@ -15,7 +15,7 @@ function perform_generate_action(){
   zip_code = document.getElementById('zip').value
   const user_response = document.getElementById('feelings').value
   baseURL = `http://api.openweathermap.org/data/2.5/weather?zip=${zip_code}&appid=${apiKey}`;
-  console.log(baseURL)
+  // console.log(baseURL)
 
   get_weather(baseURL)
   .then(function(weather_data){
@@ -54,7 +54,7 @@ const post_data = async(url='', data={}) => {
       body:JSON.stringify(data)
     })
   try{
-    const data_object = await response.text()
+    const data_object = await response.json()
   } catch (error){
     console.log("error", error)
   }
@@ -70,6 +70,6 @@ const updateUI = async () => {
 
 
   }catch{
-
+    alert('Please insert a zip code!')
   }
 } 
