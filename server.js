@@ -19,7 +19,7 @@ app.use(express.static('website'));
 
 
 // Setup Server
-const port = 4000;
+const port = 4010;
 // Spin up the server
 const server = app.listen(port, listening);
 // Callback to debug
@@ -41,7 +41,7 @@ function addData(request, response){
     // Add -temperature -date -user response to  projectData
     let temperature = request.body.temperature
     let date = request.body.date
-    let user_response = request.bod.user_response
+    let user_response = request.body.user_response
 
     projectData={
       "temperature":temperature,
