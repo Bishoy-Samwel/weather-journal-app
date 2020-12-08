@@ -37,14 +37,13 @@ function get_projectData(request,response){
 //post function
 app.post('/add_data', addData)
 function addData(request, response){
-  response.send(projectData)
     // Add -temperature -date -user response to  projectData
-    let temperature = request.body.temperature
+    let temp = request.body.temp
     let date = request.body.date
     let user_response = request.body.user_response
 
     projectData={
-      "temperature":temperature,
+      "temp":temp,
       "user_response":user_response,
       "date":date
     }

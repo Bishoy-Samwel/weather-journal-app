@@ -14,14 +14,14 @@ document.getElementById('generate').addEventListener('click', perform_generate_a
 function perform_generate_action(){
   zip_code = document.getElementById('zip').value
   const user_response = document.getElementById('feelings').value
-  baseURL = `http://api.openweathermap.org/data/2.5/weather?zip=${zip_code}&appid=${apiKey}`;
+  baseURL = `http://api.openweathermap.org/data/2.5/weather?zip=${zip_code}&appid=${apiKey}&units=metric`;
   // console.log(baseURL)
 
   get_weather(baseURL)
   .then(function(weather_data){
     console.log(weather_data['main']['temp'])
     const data_object = {
-      'temprature':weather_data['main']['temp'],
+      'temp':weather_data['main']['temp'],
       'date' : newDate,
       'user_response': user_response
     }
@@ -65,7 +65,7 @@ const updateUI = async () => {
   try{
     const allData = await request.json();
     document.getElementById('date').innerHTML = `Date: ${allData['date']}`
-    document.getElementById('temp').innerHTML = `Teprature: ${allData['temprature']}`
+    document.getElementById('temp').innerHTML = `Teprature: ${allData['temp']}`
     document.getElementById('content').innerHTML = `Mode: ${allData['user_response']}`
 
 
